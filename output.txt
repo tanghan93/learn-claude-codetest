@@ -1,0 +1,1 @@
+0: b'#!/usr/bin/env python3\r\n# Harness: autonomy -- models that find work without being told.\r\n"""\r\ns11_autonomous_agents.py - Autonomous Agents\r\n\r\nIdle cycle with task board polling, auto-claiming unclaim'

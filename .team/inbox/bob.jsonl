@@ -1,0 +1,7 @@
+{"type": "message", "from": "lead", "content": "Bob, I received your initial plan but the approval request ID isn't valid anymore. Please resubmit your refactoring plan for my review and approval.", "timestamp": 1777813026.0330422}
+{"type": "message", "from": "lead", "content": "Bob, I'm waiting for you to resubmit your refactoring plan. Please submit an approval request with your updated plan.", "timestamp": 1777813036.2928548}
+{"type": "message", "from": "lead", "content": "Bob, please submit a NEW plan approval request using the plan_approval protocol. I need to see your plan in a fresh request that I can approve or reject.", "timestamp": 1777813050.8443959}
+{"type": "broadcast", "from": "lead", "content": "Bob, please submit your refactoring plan for approval. I need a plan_approval request with your detailed plan so I can review it.", "timestamp": 1777813060.632414}
+{"type": "shutdown_request", "from": "lead", "content": "Please shut down gracefully.", "timestamp": 1777813064.6157029, "extra": {"request_id": "f4ec4be1"}}
+{"type": "shutdown_request", "from": "lead", "content": "Bob, please acknowledge the shutdown request with request_id f4ec4be1 and shut down gracefully. Your services are no longer needed.", "timestamp": 1777813154.7297616}
+{"type": "shutdown_request", "from": "lead", "content": "Please shut down gracefully.", "timestamp": 1777813168.5936217, "extra": {"request_id": "9ff71eae"}}

@@ -1,0 +1,8 @@
+{
+  "id": 6,
+  "subject": "emit",
+  "description": "Emit the transformed code back to source files.",
+  "status": "completed",
+  "blockedBy": [],
+  "owner": "coder"
+}

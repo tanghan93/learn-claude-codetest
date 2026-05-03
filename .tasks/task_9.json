@@ -1,0 +1,8 @@
+{
+  "id": 9,
+  "subject": "Create API documentation",
+  "description": "Write comprehensive API docs with examples for all endpoints using OpenAPI spec.",
+  "status": "pending",
+  "blockedBy": [],
+  "owner": ""
+}

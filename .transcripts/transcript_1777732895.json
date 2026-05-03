@@ -1,0 +1,3 @@
+{"role": "user", "content": "Use the compact tool to manually compress the conversation"}
+{"role": "assistant", "content": ["ThinkingBlock(signature='fef93cf1-5613-42a4-8432-d5850070e41e', thinking='The user wants me to use the compact tool to manually compress the conversation. Let me invoke it with a reasonable focus parameter.', type='thinking')", "ToolUseBlock(id='call_00_lRKh8OuLc98hIPwJUwoS3979', caller=None, input={'focus': 'Compress the conversation history, preserving all important context and actions taken so far.'}, name='compact', type='tool_use')"]}
+{"role": "user", "content": [{"type": "tool_result", "tool_use_id": "call_00_lRKh8OuLc98hIPwJUwoS3979", "content": "Compressing..."}]}

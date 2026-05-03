@@ -1,0 +1,4 @@
+task_1.json : {'id': 1, 'subject': 'Plan architecture', 'description': 'Create a simple Python project structure with a main.py, utils.py, and README.md. Create the directory structure and list the files.', 'status': 'completed', 'blockedBy': [], 'owner': ''}
+task_2.json : {'id': 2, 'subject': 'Write core module', 'description': 'Create a utils.py file with two simple functions: greet(name) that returns a greeting, and add(a,b) that returns the sum. Keep it simple.', 'status': 'completed', 'blockedBy': [1], 'owner': ''}
+task_3.json : {'id': 3, 'subject': 'Write tests', 'description': 'Write tests for the utils module. Test the greet() and add() functions. Create a test_utils.py file.', 'status': 'completed', 'blockedBy': [2], 'owner': ''}
+task_4.json : {'id': 4, 'subject': 'Create documentation', 'description': 'Create a README.md file describing the project, how to run it, and what each file does.', 'status': 'pending', 'blockedBy': [3], 'owner': ''}

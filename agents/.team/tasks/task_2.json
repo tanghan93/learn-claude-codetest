@@ -1,0 +1,8 @@
+{
+  "id": 2,
+  "subject": "Write core module",
+  "description": "Create a utils.py file with two simple functions: greet(name) that returns a greeting, and add(a,b) that returns the sum. Keep it simple.",
+  "status": "completed",
+  "blockedBy": [1],
+  "owner": "builder"
+}

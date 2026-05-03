@@ -1,0 +1,15 @@
+{
+  "team_name": "default",
+  "members": [
+    {
+      "name": "coder",
+      "role": "Autonomous Coder",
+      "status": "idle"
+    },
+    {
+      "name": "backend",
+      "role": "\u540e\u7aef\u5de5\u7a0b\u5e08",
+      "status": "working"
+    }
+  ]
+}

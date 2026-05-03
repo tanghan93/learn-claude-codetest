@@ -1,0 +1,8 @@
+{
+  "id": 4,
+  "subject": "Create documentation",
+  "description": "Create a README.md file describing the project, how to run it, and what each file does.",
+  "status": "completed",
+  "blockedBy": [3],
+  "owner": "builder"
+}

@@ -1,0 +1,8 @@
+{
+  "id": 8,
+  "subject": "Add login feature",
+  "description": "Implement user authentication with username/password and JWT token support.",
+  "status": "pending",
+  "blockedBy": [],
+  "owner": ""
+}

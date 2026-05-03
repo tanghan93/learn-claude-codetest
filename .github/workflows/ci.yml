@@ -1,0 +1,131 @@
+# Continuous Integration workflow for the Python Calculator project
+# Runs automated testing, linting, and code quality checks on every push/PR.
+
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test - Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install pytest pytest-cov
+
+      - name: Run tests with coverage
+        run: |
+          python -m pytest tests/ -v --cov=. --cov-report=term-missing --cov-report=xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          file: ./coverage.xml
+          fail_ci_if_error: false
+        continue-on-error: true
+
+  lint:
+    name: Lint - Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install flake8 ruff
+
+      - name: Lint with flake8
+        run: |
+          # Display any errors found (exit code 0 to not fail the workflow)
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --max-complexity=10 --max-line-length=127 --statistics
+
+      - name: Lint with ruff
+        run: |
+          ruff check . --statistics
+        continue-on-error: true
+
+  build:
+    name: Build and Verify
+    runs-on: ubuntu-latest
+    needs: [test, lint]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install build
+
+      - name: Build package
+        run: |
+          python -m build --sdist --wheel
+          echo "Build artifacts:"
+          ls -la dist/
+
+      - name: Verify import works
+        run: |
+          python -c "
+          from calculator import Calculator
+          calc = Calculator()
+          assert calc.add(2, 3) == 5
+          print('Calculator import and basic test: OK')
+          "
+
+  notify:
+    name: Notify on Failure
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: failure() && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Log failure
+        run: |
+          echo "::warning::CI pipeline failed on ${{ github.ref }} for commit ${{ github.sha }}"
+          echo "Check run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

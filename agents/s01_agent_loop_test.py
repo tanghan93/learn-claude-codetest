@@ -29,16 +29,16 @@ import subprocess
 import json
 
 from dotenv import load_dotenv
+from openai import OpenAI
+from config import DEEPSEEK_API_KEY, DEFAULT_MODEL
 
 load_dotenv(override=True)
 
 SYSTEM = "You are a helpful AI assistant with access to tools. Use them to solve the user's request."
 
 # Set up the OpenAI client using the base URL and API key from environment variables
-api_key = os.getenv("DEEPSEEK_API_KEY", "sk-7dffbcd49caf46ab921e2d9c4b5fe3eb")
-from openai import OpenAI
-client = OpenAI(base_url="https://api.deepseek.com/beta", api_key=api_key)
-MODEL = "deepseek-reasoner"
+client = OpenAI(base_url="https://api.deepseek.com/beta", api_key=DEEPSEEK_API_KEY)
+MODEL = DEFAULT_MODEL
 #* deepseek-chat 和 deepseek-reasoner 对应模型版本不变，
 #为 DeepSeek-V3.2 (128K 上下文长度)，与 APP/WEB 版不同。
 #deepseek-chat 对应 DeepSeek-V3.2 的非思考模式，
@@ -70,13 +70,18 @@ TOOLS = [{
 # 4. 如果命令执行成功，返回标准输出或 "(no output)"。
 # 5. 如果命令执行超时，返回超时提示。
 def run_bash(command: str) -> str:
-    dangerous =["rm -rf /", "sudo","shutdown","reboot","> /dev/"]
+    dangerous = ["rm -rf /", "sudo", "shutdown", "reboot", "> /dev/"]
     print(f"Running command: {command}")
     if any(d in command for d in dangerous):
         return "Error: Dangerous command blocked."
     try:
-        r = subprocess.run(command,shell=True, cwd=os.getcwd(),
-                           capture_output=True, text=True, timeout=120)
+        r = subprocess.run(
+            command, shell=True, cwd=os.getcwd(),
+            capture_output=True, text=True, timeout=120,
+            encoding="gbk",
+            errors="replace"
+
+        )
         out = (r.stdout + r.stderr).strip()
         return out[:50000] if out else "(no output)"
     except subprocess.TimeoutExpired:

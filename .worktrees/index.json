@@ -1,0 +1,22 @@
+{
+  "worktrees": [
+    {
+      "name": "auth-refactor",
+      "path": "D:\\Pyprogram\\learn-claude-codetest\\.worktrees\\auth-refactor",
+      "task_id": 11,
+      "base_ref": "main",
+      "created_at": 1777819892.8627067,
+      "status": "removed",
+      "removed_at": 1777820361.2361574
+    },
+    {
+      "name": "ui-login",
+      "path": "D:\\Pyprogram\\learn-claude-codetest\\.worktrees\\ui-login",
+      "task_id": 12,
+      "base_ref": "main",
+      "created_at": 1777819894.7741156,
+      "status": "kept",
+      "kept_at": 1777820142.5451415
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": 11,
+  "subject": "Implement backend authentication",
+  "description": "Design and implement backend authentication system including JWT token generation, user login/signup APIs, password hashing, and middleware for protected routes.",
+  "status": "completed",
+  "owner": "coder",
+  "worktree": "",
+  "blockedBy": [],
+  "created_at": 1777819810.3496249,
+  "updated_at": 1777820361.2346637
+}

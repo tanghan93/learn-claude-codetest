@@ -41,6 +41,8 @@ except ImportError:
     pass
 
 from dotenv import load_dotenv
+from openai import OpenAI
+from config import DEEPSEEK_API_KEY, DEFAULT_MODEL
 
 load_dotenv(override=True)
 
@@ -50,10 +52,8 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 # Set up the OpenAI client using the base URL and API key from environment variables
-api_key = os.getenv("DEEPSEEK_API_KEY", "sk-7dffbcd49caf46ab921e2d9c4b5fe3eb")
-from openai import OpenAI
-client = OpenAI(base_url="https://api.deepseek.com/beta", api_key=api_key)
-MODEL = "deepseek-reasoner"
+client = OpenAI(base_url="https://api.deepseek.com/beta", api_key=DEEPSEEK_API_KEY)
+MODEL = DEFAULT_MODEL
 #* deepseek-chat 和 deepseek-reasoner 对应模型版本不变，
 #为 DeepSeek-V3.2 (128K 上下文长度)，与 APP/WEB 版不同。
 #deepseek-chat 对应 DeepSeek-V3.2 的非思考模式，

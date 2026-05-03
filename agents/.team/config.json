@@ -1,0 +1,20 @@
+{
+  "team_name": "default",
+  "members": [
+    {
+      "name": "builder",
+      "role": "coder",
+      "status": "idle"
+    },
+    {
+      "name": "tester",
+      "role": "tester",
+      "status": "pending"
+    },
+    {
+      "name": "frontend",
+      "role": "\u524d\u7aef\u5de5\u7a0b\u5e08",
+      "status": "shutdown"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{"event": "worktree.create.before", "ts": 1777819892.8627067, "task": {"id": 11}, "worktree": {"name": "auth-refactor", "base_ref": "HEAD"}}
+{"event": "worktree.create.failed", "ts": 1777819894.7733867, "task": {"id": 11}, "worktree": {"name": "auth-refactor", "base_ref": "HEAD"}, "error": "unsupported operand type(s) for +: 'NoneType' and 'str'"}
+{"event": "worktree.create.before", "ts": 1777819894.7741156, "task": {"id": 12}, "worktree": {"name": "ui-login", "base_ref": "HEAD"}}
+{"event": "worktree.create.failed", "ts": 1777819896.0994022, "task": {"id": 12}, "worktree": {"name": "ui-login", "base_ref": "HEAD"}, "error": "unsupported operand type(s) for +: 'NoneType' and 'str'"}
+{"event": "worktree.keep", "ts": 1777820142.545456, "task": {"id": 12}, "worktree": {"name": "ui-login", "path": "D:\\Pyprogram\\learn-claude-codetest\\.worktrees\\ui-login", "status": "kept"}}
+{"event": "worktree.remove.before", "ts": 1777820359.6842258, "task": {"id": 11}, "worktree": {"name": "auth-refactor", "path": "D:\\Pyprogram\\learn-claude-codetest\\.worktrees\\auth-refactor"}}
+{"event": "task.completed", "ts": 1777820361.2357068, "task": {"id": 11, "subject": "Implement backend authentication", "status": "completed"}, "worktree": {"name": "auth-refactor"}}
+{"event": "worktree.remove.after", "ts": 1777820361.236494, "task": {"id": 11}, "worktree": {"name": "auth-refactor", "path": "D:\\Pyprogram\\learn-claude-codetest\\.worktrees\\auth-refactor", "status": "removed"}}
