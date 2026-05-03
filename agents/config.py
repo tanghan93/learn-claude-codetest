@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 # DeepSeek API 配置
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "sk-7dffbcd49caf46ab921e2d9c4b5fe3eb")
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "sk-")
 DEEPSEEK_BASE_URL = "https://api.deepseek.com/anthropic"
 
 # 模型配置
